@@ -1,5 +1,8 @@
-<p-card header="Listagem de Pessoas">
-  <div fxLayout="column" fxLayoutAlign="space-around center">
-    <app-contacts-filter fxFlex="60"></app-contacts-filter>
-  </div>
-</p-card>
+<ng-container *ngIf="contacts$ | async as contacts">
+  <p-card header="Listagem de Pessoas">
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+      <app-contacts-filter></app-contacts-filter>
+      <app-contacts-table [contacts]="contacts"></app-contacts-table>
+    </div>
+  </p-card>
+</ng-container>

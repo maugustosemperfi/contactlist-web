@@ -7,9 +7,12 @@ import { ContactsFilterComponent } from './components/contacts-filter/contacts-f
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
 import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
+import { NgxsModule } from '@ngxs/store';
+import { ContactsState } from './store/state/contacts.state';
 
 @NgModule({
   imports: [
+    NgxsModule.forFeature([ContactsState]),
     FlexLayoutModule,
     PrimeModule,
     ReactiveFormsModule,

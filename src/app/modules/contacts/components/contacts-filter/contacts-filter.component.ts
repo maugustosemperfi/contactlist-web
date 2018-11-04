@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SearchContacts } from '../store/actions/contacts.action';
+import { SearchContacts } from '@modules/contacts/store/actions/contacts.action';
 
 @Component({
   selector: 'app-contacts-filter',
