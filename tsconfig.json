@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
+      "@environment/*": ["environments/*"],
+      "@core/*": ["app/core/*"],
+      "@modules/*": ["app/modules/*"],
+      "@shared/*": ["app/shared/*"],
       "@app/*": ["app/*"],
-      "@environment": ["environments/*"],
-      "@core": ["app/core/*"],
-      "@modules": ["app/modules/*"],
-      "@shared": ["app/shared/*"]
     }
   }
 }
