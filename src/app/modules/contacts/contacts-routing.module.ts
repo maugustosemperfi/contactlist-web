@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ContactsComponent } from './contacts.component';
+import { ContactFormComponent } from './paged-components/contact-form/contact-form.component';
 
 const routes: Routes = [
-  {path: '', component: ContactsComponent}
+  { path: '', component: ContactsComponent },
+  { path: 'add', component: ContactFormComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  declarations: [],
+  declarations: []
 })
 export class ContactsRoutingModule {}
