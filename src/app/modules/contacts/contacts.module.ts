@@ -4,6 +4,7 @@ import { ContactsComponent } from './contacts.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { PrimeModule } from '@app/prime.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ContactsFilterComponent } from './contacts-filter/contacts-filter.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ContactsRoutingModule,
     CommonModule
   ],
-  declarations: [ContactsComponent]
+  declarations: [ContactsComponent, ContactsFilterComponent]
 })
 export class ContactsModule { }
