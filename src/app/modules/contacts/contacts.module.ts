@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrimeModule } from '@app/prime.module';
-import { ContactsFilterComponent } from './contacts-filter/contacts-filter.component';
+import { ContactsFilterComponent } from './components/contacts-filter/contacts-filter.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
+import { ContactsTableComponent } from './components/contacts-table/contacts-table.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ContactsComponent } from './contacts.component';
     ContactsRoutingModule,
     CommonModule
   ],
-  declarations: [ContactsComponent, ContactsFilterComponent]
+  declarations: [ContactsComponent, ContactsFilterComponent, ContactsTableComponent]
 })
 export class ContactsModule {}
