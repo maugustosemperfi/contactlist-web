@@ -1,3 +1,16 @@
-<p>
-  contacts-filter works!
-</p>
+<form [formGroup]="filterForm" fxLayout="row" fxLayoutAlign="space-around center">
+
+  <div fxFlex="30" class="ui-float-label">
+    <input type="text" formControlName="name" pInputText class="full-width">
+    <label>Nome</label>
+  </div>
+
+  <div fxFlex="30" class="ui-float-label">
+    <input type="text" formControlName="cpf" pInputText class="full-width">
+    <label>CPF</label>
+  </div>
+
+  <button pButton type="button" label="Pesquisar" class="ui-button-raised"></button>
+  <button pButton type="button" label="Cadastrar" class="ui-button-raised ui-button-secondary"></button>
+
+</form>
