@@ -14,6 +14,8 @@ import { ContactFormService } from './services/contact-form.service';
 import { ContactFormState } from './store/state/contact-form.state';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactService } from './services/contact.service';
+import { AgePipe } from './pipes/age.pipe';
+import { PonesQuantityPipe } from './pipes/pones-quantity.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +31,9 @@ import { ContactService } from './services/contact.service';
     ContactsComponent,
     ContactsFilterComponent,
     ContactsTableComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    AgePipe,
+    PonesQuantityPipe
   ],
   providers: [
     ContactService,
