@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SearchContacts } from '@modules/contacts/store/actions/contacts.action';
+import { Navigate } from '@ngxs/router-plugin';
 
 @Component({
   selector: 'app-contacts-filter',
@@ -20,6 +21,10 @@ export class ContactsFilterComponent implements OnInit {
 
   search() {
     this.store.dispatch(new SearchContacts(this.filterForm.value));
+  }
+
+  addContact() {
+    this.store.dispatch(new Navigate(['/contacts/add']));
   }
 
   private generateFilterForm() {
