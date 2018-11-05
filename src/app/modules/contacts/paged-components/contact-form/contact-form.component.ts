@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, Form } from '@angular/forms';
 import { Phone } from '@shared/models/phone.model';
 import { Contact } from '@shared/models/contact.model';
+import { Store } from '@ngxs/store';
+import { AddContact } from '@modules/contacts/store/actions/contact-form.actions';
 
 @Component({
   selector: 'app-contact-form',
@@ -16,7 +18,7 @@ export class ContactFormComponent implements OnInit {
 
   id: string;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private store: Store) {}
 
   ngOnInit() {
     this.generateContactForm();
@@ -31,7 +33,8 @@ export class ContactFormComponent implements OnInit {
   create() {
     const contact: Contact = this.contactForm.value;
     contact.phones = this.phones;
-    console.log(contact);
+    contact.birthday = new Date();
+    this.store.dispatch(new AddContact(contact));
   }
 
   private generateContactForm() {

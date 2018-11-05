@@ -10,13 +10,17 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
 import { ContactFormComponent } from './paged-components/contact-form/contact-form.component';
 import { ContactsState } from './store/state/contacts.state';
+import { ContactFormService } from './services/contact-form.service';
+import { ContactFormState } from './store/state/contact-form.state';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    NgxsModule.forFeature([ContactsState]),
+    NgxsModule.forFeature([ContactsState, ContactFormState]),
     FlexLayoutModule,
     PrimeModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ContactsRoutingModule,
     CommonModule
   ],
@@ -25,6 +29,9 @@ import { ContactsState } from './store/state/contacts.state';
     ContactsFilterComponent,
     ContactsTableComponent,
     ContactFormComponent
+  ],
+  providers: [
+    ContactFormService
   ]
 })
 export class ContactsModule {}
