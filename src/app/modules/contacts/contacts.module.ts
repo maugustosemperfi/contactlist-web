@@ -13,6 +13,7 @@ import { ContactsState } from './store/state/contacts.state';
 import { ContactFormService } from './services/contact-form.service';
 import { ContactFormState } from './store/state/contact-form.state';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactService } from './services/contact.service';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactFormComponent
   ],
   providers: [
+    ContactService,
     ContactFormService
   ]
 })

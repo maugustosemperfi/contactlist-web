@@ -13,10 +13,6 @@ export class ContactFormService {
 
   addContact(contact: Contact) {
     const url = `${this.ENDPOINT}create`;
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.set('Access-Control-Allow-Origin', '*');
-    headers.set('Access-Control-Allow-Headers', 'Content-type');
-    headers.set('Access-Control-Allow-Methods', 'POST');
-    return this.httpClient.post(url, contact, {headers: headers});
+    return this.httpClient.post(url, contact);
   }
 }

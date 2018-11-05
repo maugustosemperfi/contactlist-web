@@ -17,6 +17,7 @@ export class ContactsFilterComponent implements OnInit {
 
   ngOnInit() {
     this.generateFilterForm();
+    this.search();
   }
 
   search() {
