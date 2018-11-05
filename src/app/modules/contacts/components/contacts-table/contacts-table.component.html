@@ -12,15 +12,15 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-contact>
-    <tr>
+    <tr class="text-center">
       <td>{{contact.id}}</td>
       <td>{{contact.name}}</td>
       <td>{{contact.email}}</td>
       <td>{{contact.cpf}}</td>
       <td>{{contact.birthday | age}}</td>
       <td>{{contact.phones | ponesQuantity}}</td>
-      <td>EDITAR</td>
-      <td>DELETAR</td>
+      <td><p-button icon="pi pi-pencil"></p-button></td>
+      <td><p-button icon="pi pi-trash" (click)="deleteContact(contact)"></p-button></td>
     </tr>
   </ng-template>
 </p-table>

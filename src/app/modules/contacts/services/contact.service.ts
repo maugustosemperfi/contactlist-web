@@ -14,4 +14,8 @@ export class ContactService {
   getAll() {
     return this.http.get(this.ENDPOINT);
   }
+
+  deleteContact(id: number) {
+    return this.http.post(`${this.ENDPOINT}${id}/delete`, {});
+  }
 }

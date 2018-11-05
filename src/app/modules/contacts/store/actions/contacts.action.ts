@@ -15,3 +15,16 @@ export class SearchContactsFail {
   static readonly type = '[Contacts API] SearchContactsFail]';
 }
 
+export class DeleteContact {
+  static readonly type = '[Contacts Page] DeleteContact]';
+  constructor(public readonly payload: Contact) {}
+}
+
+export class DeleteContactSuccessful {
+  static readonly type = '[Contacts API] DeleteContactSuccessful]';
+  constructor(public readonly payload: Contact) {}
+}
+
+export class DeleteContactFail {
+  static readonly type = '[Contacts API] DeleteContactFail]';
+}
