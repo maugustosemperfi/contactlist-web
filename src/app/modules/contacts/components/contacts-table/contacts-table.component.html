@@ -19,7 +19,7 @@
       <td>{{contact.cpf}}</td>
       <td>{{contact.birthday | age}}</td>
       <td>{{contact.phones | ponesQuantity}}</td>
-      <td><p-button icon="pi pi-pencil"></p-button></td>
+      <td><p-button icon="pi pi-pencil" (click)="editContact(contact)"></p-button></td>
       <td><p-button icon="pi pi-trash" (click)="deleteContact(contact)"></p-button></td>
     </tr>
   </ng-template>

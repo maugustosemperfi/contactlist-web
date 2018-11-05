@@ -57,6 +57,6 @@
   </form>
 
   <p-footer fxLayout="row" fxLayoutAlign="start center">
-    <button pButton type="button" label="Cadastrar" class="ui-button-raised" (click)="create()"></button>
+    <button pButton type="button" [label]="id ? 'Atualizar' : 'Cadastrar'" class="ui-button-raised" (click)="id ? update() : create() "></button>
   </p-footer>
 </p-card>

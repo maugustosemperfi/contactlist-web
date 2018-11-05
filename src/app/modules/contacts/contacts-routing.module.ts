@@ -5,7 +5,8 @@ import { ContactFormComponent } from './paged-components/contact-form/contact-fo
 
 const routes: Routes = [
   { path: '', component: ContactsComponent },
-  { path: 'add', component: ContactFormComponent }
+  { path: 'add', component: ContactFormComponent },
+  { path: ':id/update', component: ContactFormComponent },
 ];
 
 @NgModule({

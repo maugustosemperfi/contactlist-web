@@ -1,7 +1,8 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { Contact } from '@shared/models/contact.model';
-import { AddContact, AddContactSuccessful, AddContactFail } from '../actions/contact-form.actions';
+import { AddContact, AddContactSuccessful, AddContactFail, LoadContact, LoadContactSuccessful, LoadContactFail, UpdateContact, UpdateContactSuccessful, UpdateContactFail } from '../actions/contact-form.actions';
 import { ContactFormService } from '@modules/contacts/services/contact-form.service';
+import { Navigate } from '@ngxs/router-plugin';
 
 export interface ContactFormStateModel {
   contact: Contact;
@@ -41,6 +42,8 @@ export class ContactFormState {
     ctx.patchState({
       loading: false
     });
+
+    ctx.dispatch(new Navigate(['/contacts']));
   }
 
   @Action(AddContactFail)
@@ -48,6 +51,34 @@ export class ContactFormState {
     ctx.patchState({
       loading: false
     });
+  }
+
+  @Action(LoadContact)
+  loadContact(ctx: StateContext<ContactFormStateModel>, action: LoadContact) {
+    this.service.loadContact(action.payload)
+      .subscribe(
+        (contact) => {
+          const contactModeled = contact as Contact;
+          ctx.dispatch(new LoadContactSuccessful(contactModeled));
+        },
+        (err) => ctx.dispatch(new LoadContactFail())
+      );
+  }
+
+  @Action(LoadContactSuccessful)
+  loadContactSuccessful(ctx: StateContext<ContactFormStateModel>, action: LoadContactSuccessful) {
+    ctx.patchState({
+      contact: action.payload
+    });
+  }
+
+  @Action(UpdateContact)
+  updateContact(ctx: StateContext<ContactFormStateModel>, action: UpdateContact) {
+    this.service.updateContact(action.payload.id, action.payload)
+      .subscribe(
+        (contact) => ctx.dispatch(new UpdateContactSuccessful()),
+        (err) => ctx.dispatch(new UpdateContactFail())
+      );
   }
 
 }

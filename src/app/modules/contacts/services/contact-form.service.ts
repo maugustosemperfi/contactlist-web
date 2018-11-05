@@ -15,4 +15,14 @@ export class ContactFormService {
     const url = `${this.ENDPOINT}create`;
     return this.httpClient.post(url, contact);
   }
+
+  loadContact(id: number) {
+    const url = `${this.ENDPOINT}${id}`;
+    return this.httpClient.get(url);
+  }
+
+  updateContact(id: number, contact: Contact) {
+    const url = `${this.ENDPOINT}${id}/update`;
+    return this.httpClient.post(url, contact);
+  }
 }
