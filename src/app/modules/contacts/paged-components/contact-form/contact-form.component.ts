@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, Form } from '@angular/forms';
 import { Phone } from '@shared/models/phone.model';
 import { Contact } from '@shared/models/contact.model';
 
@@ -12,6 +12,8 @@ export class ContactFormComponent implements OnInit {
   contactForm: FormGroup;
   phoneForm: FormGroup;
 
+  phones: Phone[] = [];
+
   id: string;
 
   constructor(private fb: FormBuilder) {}
@@ -22,7 +24,14 @@ export class ContactFormComponent implements OnInit {
   }
 
   addPhone() {
+    this.phones.push(this.phoneForm.value);
     this.phoneForm.reset();
+  }
+
+  create() {
+    const contact: Contact = this.contactForm.value;
+    contact.phones = this.phones;
+    console.log(contact);
   }
 
   private generateContactForm() {
@@ -30,14 +39,15 @@ export class ContactFormComponent implements OnInit {
       name: ['', [Validators.required]],
       cpf: ['', [Validators.required, Validators.minLength(11)]],
       email: ['', [Validators.required, Validators.email]],
-      birthday: ['', [Validators.required]]
+      birthday: ['', [Validators.required]],
+      phones: this.fb.array([])
     });
   }
 
   private generatePhoneForm() {
     this.phoneForm = this.fb.group({
       ddd: ['', Validators.required],
-      phone: ['', Validators.required]
+      number: ['', Validators.required]
     });
   }
 }

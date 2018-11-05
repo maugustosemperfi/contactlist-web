@@ -28,43 +28,31 @@
         <label>DDD</label>
       </div>
       <div fxFlex="20" class="ui-float-label">
-        <input type="number" formControlName="phone" pInputText class="full-width">
+        <input type="number" formControlName="number" pInputText class="full-width">
         <label>Telefone</label>
       </div>
-      <button pButton type="button" label="Adicionar" class="ui-button-raised"></button>
-    </div>
-
-    <div *ngFor="let address of aliases.controls; let i=index">
-      
+      <button pButton type="button" label="Adicionar" class="ui-button-raised" (click)="addPhone()"></button>
     </div>
 
     <div>
-        <p-table [value]="contacts">
+        <p-table [value]="phones">
             <ng-template pTemplate="header">
               <tr>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>CPF</th>
-                <th>Idade</th>
-                <th>Quantidade de Telefones</th>
-                <th></th>
+                <th>DDD</th>
+                <th>Telefone</th>
                 <th></th>
               </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-contact>
+            <ng-template pTemplate="body" let-phone>
               <tr>
-                <td>{{contact.id}}</td>
-                <td>{{contact.nome}}</td>
-                <td>{{contact.email}}</td>
-                <td>{{contact.cpf}}</td>
-                <td>{{contact.age}}</td>
-                <td>{{contact.qtyPhone</td>
-                <td>EDITAR</td>
+                <td>{{phone.id}}</td>
+                <td>{{phone.ddd}}</td>
+                <td>{{phone.number}}</td>
                 <td>DELETAR</td>
               </tr>
             </ng-template>
-          </p-table>          
+          </p-table>
     </div>
   </form>
 
